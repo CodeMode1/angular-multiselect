@@ -1,0 +1,21 @@
+.multi-select-box {
+  border: 1px solid grey;
+  width: 200px;
+}
+
+.multi-select-box ul {
+  list-style-type: none;
+}
+
+.li-item {
+  background-color: ivory;
+}
+
+.li-item.selected{
+  background-color: lightcyan;
+  color: red;
+}
+
+.highlight {
+  background-color: purple !important;
+}

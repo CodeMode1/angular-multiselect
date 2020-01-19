@@ -1,0 +1,22 @@
+<div tabindex='0' class='multi-select-box' id='box' (keydown.arrowup)='onArrowUp($event)' (keydown.arrowdown)='onArrowDown($event)' (click)='onClickDiv($event)' (keydown.enter)='onEnter($event)' (keydown.tab)='isExpanded=false'>
+  <span *ngFor="let item of selectedItems; index as i">{{item.name}}<i *ngIf="i != selectedItems.length - 1">,</i></span>
+  <!-- iterate on currentValue (which is array with values assigned) -->
+  <div style="float: right">
+    <i *ngIf='!isExpanded'>▼</i>
+    <i *ngIf='isExpanded'>▲</i>
+  </div>
+  <ul *ngIf='isExpanded'>
+      <!-- iterate on itemList (which is array all options) -->
+      <li *ngFor="let item of items; index as i"
+      class="li-item" 
+      [ngClass]="{ 'selected': item.isSelected, 'highlight': i === arrowPos }"
+      [value]="item.value"
+      [attr.data-value]="item.value"
+      (click)='onClickItem($event, item)'>
+        <input type='checkbox' 
+        [checked]="item.isSelected"
+        name='test'
+        (click)='onClickItem($event, item)'>{{item.name}}
+      </li>
+  </ul>
+</div>
