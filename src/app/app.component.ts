@@ -17,11 +17,10 @@ export class Item {
   styleUrls: [ './app.component.css' ]
 })
 export class AppComponent  {
-  name = 'Angular';
-  isExpanded = false;
   public items: Item[] = [];
   public selectedItems: Item[] = [];
   public arrowPos: number = 0;
+  public isExpanded = false;
 
   constructor() {
     this.items.push(new Item("Quebec", "1", false));
@@ -35,21 +34,21 @@ export class AppComponent  {
     });
   }
 
-  onArrowUp($event) {
+  onArrowUp($event): void {
     // alert('onArrowUp');
     if (this.arrowPos > 0) {
       this.arrowPos--;
     }
   }
 
-  onArrowDown($event) {
+  onArrowDown($event): void {
     // alert('onArrowDown');
     if (this.arrowPos < this.items.length - 1) {
       this.arrowPos++;
     }
   }
 
-  onClickDiv($event) {
+  onClickDiv($event): void {
     this.isExpanded = true;
   }
 
@@ -64,7 +63,7 @@ export class AppComponent  {
     // emit selectedItems (currentValue) to parent component.
   }
 
-  onEnter($event) {
+  onEnter($event): void {
     const item = this.items[this.arrowPos];
     this.selectItem(item);
   }
